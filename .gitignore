@@ -1,0 +1,9 @@
+/.metadata/*
+*.class
+*.log
+*.index
+*.jar
+*.bak
+*/classes
+/.metadata/
+node_modules
