@@ -18,6 +18,8 @@ var leaderRouter = require('./routes/leaderRouter');
 
 
 const Dishes = require('./models/dishModel');
+const Promotions = require('./models/promoModel');
+const Leaders = require('./models/leaderModel');
 
 const url = config.mongoUrl;
 const connect = mongoose.connect(url);
