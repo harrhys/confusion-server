@@ -38,9 +38,15 @@ router.route('/login')
     .options(cors.corsWithOptions, (req, res) => { res.sendStatus(200); })
     .post(cors.cors, passport.authenticate('local'), (req, res) => {
         var token = authenticate.getToken({_id: req.user._id});
-        res.statusCode = 200;
-        res.setHeader('Content-Type', 'application/json');
-        res.json({status: 'success', msg: 'You are successfully logged in!', token:token});
+        console.log('username'+req.body.username);
+        User.findOne({username: req.body.username})
+        .then(user=>{
+            let usr = {...user,token:token}
+            res.statusCode = 200;
+            res.setHeader('Content-Type', 'application/json');
+            res.json(usr);
+        })
+       
     });
 
 router.route('/logout')
